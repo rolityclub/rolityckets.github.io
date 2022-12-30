@@ -163,6 +163,9 @@
   </div>
             <input type="button" id="btnScreenShot" class="shouldBeHiddenOnPrint btn btn-primary btn-lg" value="DESCARGAR TICKET"/>
 		  <script>
+			  
+		  </script>
+		  <script>
 			  $("#btnSave").click(function () {
 	const frame = document.getElementById('previewIframe'),
 		divhtml = document.querySelector("#capture");
@@ -242,6 +245,29 @@ function download(url) {
 
 	a.remove();
 }
+			  
+			  
+			  
+			  $('#GetFile').on('click', function download(url) {
+    $.ajax({
+        url: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/172905/test.pdf',
+        method: 'GET',
+        xhrFields: {
+            responseType: 'blob'
+        },
+        success: function (data) {
+            var a = document.createElement('a')
+	    .attr("href", url);
+            var url = window.URL.createObjectURL(data);
+            a.href = url;
+            a.download = 'myfile.pdf';
+            document.body.append(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        }
+    });
+});
 		  </script>
 		  
             <!--<button type="button" id="DownloadQrImage" class="shouldBeHiddenOnPrint btn btn-primary btn-lg">Download QR Image</button>-->
