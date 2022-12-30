@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by andres-del</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<title>image to url convertor</title>
+<h1>image to url convertor</h1>
+
+<!-- partial -->
+  
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - QR-CODE</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+
+    <script src="./qrcode.js" charset="utf-8"></script>
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" media="print" href="./print.css">
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/mr_IN/sdk.js#xfbml=1&version=v3.0';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<!--     <div class="topBar shouldBeHiddenOnPrint">
+      <h1 class="display-4">Universal UPI QR Code Generator</h1>
+      <p class="lead">Free QR Code for <b>Current Account</b> & <b>Saving Account</b></p>
+    </div>
+    <div class="mainContent">
+      <div class="shouldBeHiddenOnPrint">
+        <h2>Features</h2>
+        <ul class="list-group">
+          <li class="list-group-item">0% MDR, 0% transaction fees</li>
+          <li class="list-group-item">VPA is NOT needed for for QR generation</li>
+          <li class="list-group-item">UPI registration is NOT needed for QR generation</li>
+          <li class="list-group-item">UPI app is NOT needed for QR generation</li>
+          <li class="list-group-item">Work both on Current Account and Savings Accounts</li>
+        </ul>
+        <div class="card-deck">
+          <div class="bg-light card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Business</h5>
+              <hr>
+              <p class="card-text">Create Free QR for <b>Current Account</b></p>
+            </div>
+          </div>
+          <div class="bg-light card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Personal</h5>
+              <hr>
+              <p class="card-text">Create Free QR for <b>Saving Account</b></p>
+            </div>
+          </div>
+          <div class="bg-light card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">How?</h5>
+              <hr>
+              <p class="card-text">All you need Account Number and IFSC Code to get the QR Code.</p>
+            </div>
+          </div>
+        </div> -->
+        
+        <form name="myForm" >
+        <div class="card container-fluid" style="max-width: 400px; float: left;">
+          <div class="card-body">
+            <h5 class="card-title">INFORMACION</h5>
+            <input type="file" id="boton" style="position: absolute;"
+        accept="image/*, video/*, jpg/*, png/*, p/*">
+            <div class="form-group mb-3">
+              <label for="nombre">NOMBRE</label>
+              <input type="text" class="smallinput form-control" id="nombre" maxlength="14" placeholder="" required>
+            </div>
+            <div class="form-group mb-3">
+              <label for="apellido">APELLIDO</label>
+              <input type="text" class="smallinput form-control" id="apellido" maxlength="14" placeholder="" required>
+            </div>
+            <div class="form-group mb-3">
+              <label for="apellido">CORREO ELECTRONICO</label>
+              <input type="email" class="smallinput form-control" id="email" maxlength="38" placeholder="" required>
+            </div>
+            <div class="upload-wrap">
+              <input id="01" type="file" accept="image/*">
+            </div>
+            <div class="result" id="resultado"></div>
+<input type="tel" id="phone" class="phone" value="+34 "/>
+
+<div class="container">
+   
+    <!--<div class="form-group md-group show-label">
+      <label for="">Telephone</label>
+      <input class="form-control" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="+1 ">
+    </div>-->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group md-group show-label">
+        <label for="">Select Country</label>
+        <select name="" id="address-country" class="form-control">
+          </select>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
+            
+            <b> Enter Date of Birth: <input type=date id = edad> </b>
+        <span id = "message" style="color:red"> </span> <br><br>  
+            
+              
+
+         
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<input name="adultos" value="" title="CLASES PARA ADULTOS" id="clasesparaadultos" type="checkbox" onclick="addClassCheck(this)">
+<label for="clasesparaadultos" id="label_31_3_1">CLASES PARA ADULTOS</label><br>
+
+<input name="ninos" value="" title="CLASES PARA PEQUES" id="clasesparaninos" type="checkbox" onclick="addClassCheck(this)">
+<label for="clasesparaninos" id="label_31_3_1">CLASES PARA NIÑOS</label><br>
+
+<input name="freestyle" value="" id="clasesdefreestylesalom" type="checkbox" onclick="addClassCheck(this)">
+<label for="clasesdefreestylesalom" id="label_31_3_1">CLASES DE FREESTYLE</label><br>
+
+<input name="escuelas" value="" id="clasesenescuelas" type="checkbox" onclick="addClassCheck(this)">
+<label for="clasesenescuelas" id="label_31_3_1">CLASES EN ESCUELAS</label>
+<div id="paragraph" class="alert alert-error">
+  solo puedes seleccionar una casilla
+  </div>
+            <input type="button" id="btnScreenShot" class="shouldBeHiddenOnPrint btn btn-primary btn-lg" value="DESCARGAR TICKET"/>
+            <!--<button type="button" id="DownloadQrImage" class="shouldBeHiddenOnPrint btn btn-primary btn-lg">Download QR Image</button>-->
+          </form>
+
+          </div>
+        </div>
+      </div>
+        
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script> -->
+<script type="text/javascript" src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+
+
+
+
+<!-- <iframe id="previewIframe" crossorigin="anonymous" sandbox="allow-script" src="h" height="720" width="1280" title="Iframe Example"></iframe> -->
+
+<br/><br/>
+
+<!--<input type="button" id="btnScreenShot" value="Download Screenshot">-->
+<br/><br/>
+
+      <div id="capture" class="parte-de-impresion-y-descarga">
+      <div id="A4Page" class="A4Page">
+      <center><div class="TITULO">TICKET DE CLASES</div></center>
+      <center style="display: inline-flex; width: 100%; justify-content: space-between;">
+        <img class="uploadpreview">
+       <a href=""><p id="url" style="display: none;"></p></a>
+       <script>
+        var element = document.getElementById('boton');
+        var img = document.querySelector('img');
+        element.addEventListener('change', function() {
+         var url = URL.createObjectURL(element.files[0])
+         img.src = url;
+         img.width = 300;
+         img.height = 300;
+         document.getElementById("url").innerHTML = " " + url;
+        })
+       </script>
+      <div class="orden">
+      <center>
+          <div class="NYA">NOMBRE Y APELLIDOS:
+            <center>
+            <div style="display: flex; justify-content: center;">
+              <div id="reemplazarn" style="margin-right: 10px;"></div>
+              <div id="reemplazara"></div>
+            </div>
+           </center>
+         </div>
+      </center>
+      
+      <center>
+        <div class="EDAD" id="reemplazare" style="padding-left:10px; margin-left: auto; margin-top: 10px; font-size: 0.35cm;font-weight: bold;color: #000000; border: black solid 3px; border-left: 0px; border-radius: 0px 10px 0px 0px; word-break: keep-all; width: 100%; height: 60px; font: bold 20px monospace;">EDAD:
+          <div style="display: flex; justify-content: center;  text-transform:uppercase;">
+            <div id="reemplazaredad" style="margin-right: 10px; font: bold 20px monospace;">
+              <center>
+                <h3 style="color:#000; font: bold 20px monospace;" id="result" class="result" align="center"></h3>
+              </center>
+            </div>
+          </div>
+        </div>
+      </center>
+      <center>
+        <div class="NUMERO" id="reemplazare" style="padding-left:10px; margin-left: auto; font-size: 0.35cm;font-weight: bold;color: #000000; border: black solid 3px; border-top: 0px;  border-radius: 0px 0px 0px 10px; word-break: keep-all; width: 100%; height: 60px; font: bold 20px monospace;">TELEFONO:
+          <div style="display: flex; justify-content: center;  text-transform:uppercase;">
+            <div id="reemplazarnumero" style="margin-right: 10px; font: bold 20px monospace;">
+            </div>
+          </div>
+        </div>
+      </center>
+      <center>
+        <div class="CORREO" style="border-top: 0px;">CORREO ELECTRONICO:
+          <div style="display: flex; justify-content: center;  text-transform:uppercase;">
+            <div id="reemplazaremail" style="margin-right: 10px; font: bold 20px monospace;">
+            </div>
+          </div>
+       </div>
+    </center>
+    </div>
+  </center>
+        <center ><div class="CODIGO" style="border: black solid 3px; margin-top: 10px; margin-bottom: 10px; padding: inherit; width:50%; height:100%; border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;">
+          <div class="qrBoxOuter" style="margin-top:30px;">
+            <div id="box1"></div><div id="remplazarcds" style="font: bold 20px monospace;">CODIGO ALEATORIO EN:</div><div id="countdown"></div><center><h1 id='box' style="font: bold 32px monospace; text-decoration: overline;" class="CODIGO DE VALIDEZ: "></h1></center>
+          </div>
+          </div>
+        </center>
+        <div class="orden2">
+        <center><div class="CLASES" style="border: black solid 3px; height: 100%; border-top: 0px; border-left: 0px;">CLASE SELECCIONADA:
+        <div class="box" id="adultos" style="font-size: 0.35cm;font: bold 20px monospace; font-weight: bold; display: none; color: #000000; border-top: 0px; width: 100%; height: auto; white-space: nowrap;">
+          CLASES PARA ADULTOS:<span id="reemplazarcpa"></span>
+        </div>
+        <div class="box" id="ninos" style="font-size: 0.35cm;font: bold 20px monospace;font-weight: bold; display: none; color: #000000;border-top: 0px; width: 100%; height: auto; white-space: nowrap;">
+          CLASES PARA NIÑOS:<span id="reemplazarcpa"></span>
+        </div>
+        <div class="box" id="freestyle" style="font-size: 0.35cm;font: bold 20px monospace;font-weight: bold; display: none; color: #000000;border-top: 0px;  width: 100%; height: auto; white-space: nowrap;">
+          CLASES DE FREESTYLE:<span id="reemplazarcpa"></span>
+        </div>
+        <div class="box" id="escuelas" style="font-size: 0.35cm;font: bold 20px monospace;font-weight: bold; display: none; color: #000000;border-top: 0px;  width: 100%; height: auto; white-space: nowrap;">
+          CLASES EN ESCUELAS:<span id="reemplazarcpa"></span>
+        </div>
+        </div></center>
+        <center>
+            <div class="PRECIO" style="border-left: 0px; border-top: 0px; border-right: 0px;">PRECIO DE LA CLASE:
+              <center>
+              <div style="display: flex; justify-content: center;">
+                <div id="precioadultos" ></div>
+                <div id="preciopeques" ></div>
+                <div id="preciofreestyle" ></div>
+                <div id="precioescuelas" ></div>
+              </div>
+             </center>
+           </div>
+        </center>
+        
+        <center>
+          <div class="MATERIAL" id="reemplazare" style="padding-left:10px; margin-left: auto;  font-size: 0.35cm;font-weight: bold;color: #000000; border: black solid 3px; border-top: 0px; border-radius: 0px 0px 0px 10px; word-break: keep-all; width: 100%; height: 100%; font: bold 20px monospace; border-bottom: 0px; border-left: 0px;">HORA:
+            <div style="display: flex; justify-content: center;  text-transform:uppercase;">
+              <div id="reemplazaredad" style="margin-right: 10px; font: bold 20px monospace;">
+                18:30 - 19:30
+              </div>
+            </div>
+          </div>
+        </center>
+        <center>
+          <div class="UBICACION" style="border-left: 0px; border-top: 0px; border-bottom: 0px; border-right: 0px;">UBICACION:
+            <div style="display: flex; justify-content: center;  text-transform:uppercase;">
+              <div id="reemplazaremail" style="margin-right: 10px; font: bold 20px monospace;">
+                FRONTONES DE FADURA
+              </div>
+            </div>
+         </div>
+      </center>
+      </div>
+      <center style="margin-top: 10px; "><div style="font: bold 9px monospace;">Obligatorio llevar este ticket en el mobil para poder registraros como alumnos, en caso contrario no podras asistir a la clase.<br>Obligatorio llevar todo el material todos los dias: casco, rodilleras, coderas, muñequeras y patines.<br> Recomendable llegar 10 minutos antes de la hora de la clase.<br>Para mas informacion consulte, www.rolityclub.es/info o escribanos a @info.rolityclub@gmail.com.</div></center>
+      </div>
+        </div>
+          </div>
+            </div>
+
+
+</body>
+</html>
+
+      
+<!--           <div style="font-size: 5mm;font-weight: normal;background: azure;padding: 2mm;border: 1px solid gray;">Generated By : https://nsisodiya.github.io/Universal-UPI-QR-Code-Generator</div>
+      </div> -->
+    </div>
+    <img style="width:85%;margin-top: 4mm;" src="./apps.png" alt="">
+    
+  </div>
+   
+  <script src="./index.js" charset="utf-8"></script>
+  </body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

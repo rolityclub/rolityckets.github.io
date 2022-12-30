@@ -1,0 +1,408 @@
+
+
+
+input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        display: none;
+      }
+.intl-phone-input {
+  font-size: 14px;
+  width: 300px;
+}
+.intl-phone-input .container {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid #000;
+  margin-bottom: 1.5em;
+  width: 100%;
+}
+.intl-phone-input .intl-code-select {
+  position: relative;
+  cursor: pointer;
+}
+.intl-phone-input .intl-code-select .select-display {
+  position: relative;
+  z-index: 1;
+  border-radius: 0px;
+  line-height: 2.5em;
+  padding-right: 2em;
+  min-width: 3em;
+}
+.intl-phone-input .intl-code-select .select-display::before {
+  position: absolute;
+  border-radius: 0px;;
+  top: 0px;
+  bottom: 1px;
+  right: 0px;
+  content: "\25BC";
+  pointer-events: none;
+  color: #000;
+  padding-top: 0.7em;
+  line-height: 1;
+  width: 2em;
+  text-align: center;
+  transform: scale(0.84, 0.42);
+}
+.intl-phone-input .intl-code-select select {
+  position: absolute;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 0px;
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+.intl-phone-input .input-wrap {
+  position: relative;
+  flex: 1;
+}
+.intl-phone-input .input-wrap .error-tip {
+  position: absolute;
+  color: #f00;
+  bottom: -1.5em;
+  visibility: hidden;
+}
+.intl-phone-input .input-wrap.invalid .error-tip {
+  visibility: visible;
+}
+.intl-phone-input .phone-input {
+  border: none;
+  background: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline-style: none;
+  height: 2.5em;
+  box-sizing: border-box;
+}
+.intl-phone-input .hint-text {
+  position: absolute;
+  bottom: -1.5em;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+  visibility: hidden;
+}
+.intl-phone-input .hint-text.show {
+  visibility: visible;
+}
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:700,900);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+input[type="checkbox"]{
+  display: none;
+}
+
+input + label {
+ display: inline-block;
+ border: 2px solid rgba(0, 0, 0, 0.342);
+ padding: 8px 20px 8px 20px;
+ border-radius: 5px;
+ position: relative;
+ cursor: pointer;
+}
+    &:after{
+      position: absolute;
+      content: '';
+      opacity: 0.5;
+      left: 20px;
+      top: 11px;
+      width: 18px;
+      height: 18px;
+      line-height: 1;
+      border: 2px solid rgb(0, 0, 0);
+      border-radius: 50%;
+     }
+  &:before{
+    content: '\e11e';
+    font-family: 'typicons';
+    font-size: 17px;
+    position: absolute;
+    left: 24px;
+    top: 6px;
+    opacity: 0;
+  }
+
+
+input:checked + label{
+  border-color: rgb(0, 0, 0);
+  background: #fff;
+  color: #333;
+  }
+  &:before{
+   opacity: 1;
+  }
+  &:after{
+    opacity: 1;
+    border-color: #333;
+  }
+
+.topBar {
+  background: #352b2b;
+  color: #d6d5a3;
+  padding: 20px;
+  text-align: center;
+}
+
+.smallinput {
+  max-width: 270px;
+}
+
+.mainContent {
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  flex-direction:row;
+}
+
+.A4Page {
+  border: 5px solid rgb(0, 0, 0);
+  width: 18.5cm;
+  border-radius: 1rem 1rem 1rem 1rem;
+  background-color: white;
+  height: 8cm;
+  font-family: 'Impact', sans-serif;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  display: inline-table; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 25% 25% 25% 25%; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "TITULO TITULO TITULO TITULO TITULO"
+    "NYA NYA NYA NYA CODIGO"
+    "EDAD EDAD CLASES CLASES CODIGO"
+    "LUGAR LUGAR HORA HORA CODIGO"; 
+}
+.TITULO { grid-area: TITULO; }
+.NYA { grid-area: NYA; }
+.EDAD { grid-area: EDAD; }
+.CLASES { grid-area: CLASES; }
+.LUGAR { grid-area: LUGAR; }
+.HORA { grid-area: HORA; }
+.CODIGO { grid-area: CODIGO; }
+li {
+display: block;
+}
+li:before {
+content: "🌑";
+font-family: 'Impact', sans-serif;font-size: 9px;
+float: left;
+margin-top: 7px;
+margin-left: -3px;
+margin-right: 11px;
+}
+.qrBoxOuter {
+  padding: 0cm;
+  background: white;
+  margin-top: 2mm;
+  margin-bottom: 2mm;
+}
+#box1 {
+  width: 7cm;
+  height: 7cm;
+  padding: inherit;
+  margin: auto;
+}
+.upiLogo {
+  width: 0%;
+}
+
+#box1 img{
+  width: 100%;
+}
+.hrline{
+  width: 90%;
+  background-color: #433b52;
+  height: 0mm;
+}
+
+
+#paragraph
+{
+  display:none;
+}
+
+
+
+.alert {
+  position: relative;
+  display: block;
+  padding: 1em 1.8em;
+  font-size: 0.9em;
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: left;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  background: transparent;
+  color: white;
+}
+
+/* Error */ 
+.alert-error { 
+background: #e74c3c; 
+border: 1px solid #c0392b; 
+}
+
+.TITULO{
+  font-size: 3rem;
+  font-weight: normal;
+  width: 100%;
+  border: black solid 3px;
+  width: 100%; height: 100%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  background-color: black;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+  padding: 0px 0px 0px 0px;
+}
+.parte-de-impresion-y-descarga{
+  display: flex; 
+  width: fit-content; 
+  border-radius:10px 10px 10px 10px;
+  flex-direction: column;
+  align-content: center;
+  align-items: flex-start;
+  justify-content: center;
+}
+.NYA{
+  padding-left:10px;
+  text-transform:uppercase; 
+  margin-top: 10px; 
+  border-radius: 10px 0px 0px 0px; 
+  font-size: 0.35cm;
+  font-weight: bold;
+  color: #000000; 
+  border: black solid 3px;  
+  float: left; 
+  width: 100%; 
+  height: 60px; 
+  font: bold 20px monospace;
+}
+.CLASES{
+  padding-left:10px;
+  text-transform:uppercase; 
+  border-radius: 10px 0px 0px 0px; 
+  font-size: 0.35cm;
+  font-weight: bold;
+  color: #000000; 
+  border: black solid 3px;  
+  float: left; 
+  width: 100%; 
+  height: 100%; 
+  font: bold 20px monospace;
+}
+.CORREO{
+  padding-left:10px;
+  text-transform:uppercase; 
+  border-radius: 0px 0px 10px 0px; 
+  font-size: 0.35cm;
+  font-weight: bold;
+  color: #000000; 
+  border-top: 0px;
+  border: black solid 3px;  
+  float: left; 
+  border-left: 0px;
+  width: 100%; 
+  height: 60px; 
+  font: bold 20px monospace;
+}
+.PRECIO{
+  padding-left:10px;
+  text-transform:uppercase; 
+  border-radius: 0px 10px 0px 0px; 
+  font-size: 0.35cm;
+  font-weight: bold;
+  color: #000000; 
+  border: black solid 3px;  
+  float: left; 
+  width: 100%; 
+  height: 100%; 
+  font: bold 20px monospace;
+}
+.UBICACION{
+  padding-left:10px;
+  text-transform:uppercase; 
+
+  border-radius: 0px 0px 10px 0px; 
+  font-size: 0.35cm;
+  font-weight: bold;
+  color: #000000; 
+  border: black solid 3px;  
+  float: left; 
+  width: 100%; 
+  height: 100%; 
+  font: bold 20px monospace;
+}
+.orden {
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "NYA EDAD"
+    "CORREO NUMERO"; 
+}
+.NYA { grid-area: NYA; }
+.EDAD { grid-area: EDAD; }
+.CORREO { grid-area: CORREO; }
+.NUMERO { grid-area: NUMERO; }
+
+.orden2 {
+  width: 100%;
+  border: #000 solid 3px;
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 0px 0px; 
+  border-radius: 10px;
+  height: 125PX;
+  align-items: stretch;
+  grid-template-areas: 
+    "CLASES PRECIO"
+    "MATERIAL UBICACION"; 
+}
+.CLASES { grid-area: CLASES; }
+.PRECIO { grid-area: PRECIO; }
+.MATERIAL { grid-area: MATERIAL; }
+.UBICACION { grid-area: UBICACION; }
+
+.uploadpreview{
+  width: 30%;
+    height: 120px;
+    display: block;
+    border: 3px solid #000;
+    border-radius: 10px;
+    margin: 10px 10px 10px 0px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.upload-wrap{
+  float:left;
+  width:200px;
+}
+
+input[type="file"] {
+    color: transparent;
+    width: 120px;
+    margin: 0 auto;
+    display: block;
+}
