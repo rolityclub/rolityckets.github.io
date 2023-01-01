@@ -359,7 +359,7 @@
   const nombre = document.getElementById('nombre');
 const apellido = document.getElementById('apellido');
 const email = document.getElementById('email');
-const tel = document.getElementById('.result');
+const tel = document.querySelector(".result");
 const submit = document.getElementById('submit');
 
 submit.addEventListener('submit',(e)=>{
@@ -369,7 +369,7 @@ submit.addEventListener('submit',(e)=>{
     <br>
     <h1>Last Name: </h1>${apellido.value}
     <h1>Last Name: </h1>${email.value}
-    <h1>Last Name: </h1>${tel.value}
+    <h1>Last Name: </h1>${tel.innerHTML}
     `;
 
     Email.send({
