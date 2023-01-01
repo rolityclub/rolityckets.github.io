@@ -333,71 +333,52 @@
 
 </body>
 </html>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-</head>
-<body>
-    <h1>Contact</h1>
-    
-    <form method="post" action="send-email.php">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required>
-        
-        <label for="email">email</label>
-        <input type="email" name="email" id="email" required>
-        
-        <label for="subject">Subject</label>
-        <input type="text" name="subject" id="subject" required>
-        
-        <label for="message">Message</label>
-        <textarea name="message" id="message" required></textarea>
-        
-        <br>
-        
-        <button>Send</button>
-    </form>
-    
-</body>
-</html>
-	<?php
+<form role="form" name="contact_form">
+  <div class="col-xs-4">
+    <div class="form-group">
+      <input type="text" class="form-control" id="input_name" name="Name" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" id="input_email" name="Email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <input type="tel" class="form-control" id="input_phone" name="Phone" placeholder="Phone">
+    </div>
+    <div class="form-group">
+      <input type="tel" class="form-control" id="input_location" name="Location" placeholder="Location">
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="form-group">
+      <textarea class="form-control"  id="contact_comment" name="Comment" placeholder="
 
-$name = $_POST["name"];
-$email = $_POST["email"];
-$subject = $_POST["subject"];
-$message = $_POST["message"];
 
-require "vendor/autoload.php";
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-
-$mail = new PHPMailer(true);
-
-// $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-
-$mail->isSMTP();
-$mail->SMTPAuth = true;
-
-$mail->Host = "smtp.example.com";
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port = 587;
-
-$mail->Username = "you@example.com";
-$mail->Password = "password";
-
-$mail->setFrom($email, $name);
-$mail->addAddress("dave@example.com", "Dave");
-
-$mail->Subject = $subject;
-$mail->Body = $message;
-
-$mail->send();
-
-header("Location: sent.html");
+Details or comments?" rows="10"></textarea>
+    </div>
+  </div>
+<div class="col-xs-2">
+    <div class="form-group">
+      <button id="submit_button"type="submit" class="btn btn-primary" onclick="submit_comment()">Submit</button>
+    </div>
+  </div>
+</form>
+	<script>
+function sendMail(str) {
+    var link = "rolityclub@gmail.com" + "&subject=" + escape("This is my subject") + "&body=" + escape(str);
+    location.href = link;
+}
+function submit_comment() {
+var name = document.forms["contact_form"]["Name"].value;
+var Email = document.forms["contact_form"]["Email"].value;
+var Phone = document.forms["contact_form"]["Phone"].value;
+var Location = document.forms["contact_form"]["Location"].value;
+var Comment = document.forms["contact_form"]["Location"].value;
+if((name !="") && (Email !="") && (Phone !="") && (Location !="") && (Comment !="")) {
+   sendMail("HELLO");
+}
+}
+</script>
 <script>
   // International telephone format
 // $("#phone").intlTelInput();
