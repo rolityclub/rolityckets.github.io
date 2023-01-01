@@ -159,7 +159,7 @@
 <div id="paragraph" class="alert alert-error">
   solo puedes seleccionar una casilla
   </div>
-            <input type="button" id="btnScreenShot" style="display:none" class="shouldBeHiddenOnPrint btn btn-primary btn-lg" value="DESCARGAR TICKET"/>
+            <input type="button" id="btnScreenShot" style="display: none;" class="shouldBeHiddenOnPrint btn btn-primary btn-lg" value="DESCARGAR TICKET"/>
           </form>
 
           </div>
@@ -346,12 +346,43 @@
         <!--<input type="text" id="nombre" placeholder="Enter First Name...">
         <input type="text" id="apellido" placeholder="Enter Last Name...">
         <input type="text" id="email" placeholder="Enter Last Name...">-->
-        <input type="submit" id="btnScreenShot" onclick="dropdown()" class="shouldBeHiddenOnPrint btn btn-primary btn-lg" value="ENVIAR">
+        <input type="submit" id="btnScreenShot" onclick="oculta_botones()" class="shouldBeHiddenOnPrint btn btn-primary btn-lg" value="ENVIAR">
     </form>
 
-    <script>function dropdown()
-{        console.getElementById("btnScreenShot").style.display="block";
-}</script>
+    <script>
+	    var arrayidbotones_ = new Array('btnScreenShot', 'responsive_', 'catalogo_', 'tienda_', 'blog_', 'diseno_', 'planes_');
+var arrayidbotones = new Array('meta', 'responsive', 'catalogo', 'tienda', 'blog', 'diseno', 'planes');
+
+function oculta_botones() {
+
+  var boton_seleccionado = event.target.id;
+  var boton_seleccionado_ = boton_seleccionado + "_";
+
+
+  for (var i = 0; i < arrayidbotones.length; i++) {
+    document.getElementById(arrayidbotones[i]).style.display = 'none';
+    document.getElementById(arrayidbotones_[i]).style.display = 'none';
+
+  }
+
+  for (var i = 0; i < arrayidbotones.length; i++) {
+
+    if (boton_seleccionado == arrayidbotones[i] || boton_seleccionado_ == arrayidbotones_[i]) {
+
+      document.getElementById(boton_seleccionado).style.display = 'block';
+      document.getElementById(boton_seleccionado_).style.display = 'block';
+    }
+
+  }
+}
+
+function mostrar_todo() {
+  for (var i = 0; i < arrayidbotones.length; i++) {
+    document.getElementById(arrayidbotones[i]).style.display = 'block';
+    document.getElementById(arrayidbotones_[i]).style.display = 'none';
+  }
+}
+	</script>
     
     <script src="./index.js"></script>
 </body>
