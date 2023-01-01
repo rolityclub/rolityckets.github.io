@@ -159,7 +159,7 @@
 <div id="paragraph" class="alert alert-error">
   solo puedes seleccionar una casilla
   </div>
-            <input type="submit" id="btnScreenShot" class="shouldBeHiddenOnPrint btn btn-primary btn-lg" value="send"/>
+            <input type="button" id="btnScreenShot" class="shouldBeHiddenOnPrint btn btn-primary btn-lg" value="send"/>
             <!--<button type="button" id="DownloadQrImage" class="shouldBeHiddenOnPrint btn btn-primary btn-lg">Download QR Image</button>-->
           </form>
 
@@ -365,7 +365,7 @@ const clasesparaadultos = document.getElementById('clasesparaadultos');
 const codigoseguridad = document.getElementById('box');
 const submit = document.getElementById('submit');
 
-submit.addEventListener('submit',(e)=>{
+submit.addEventListener('button',(e)=>{
     e.preventDefault();
     let ebody = `
     <h1>First Name: </h1>${nombre.value}
