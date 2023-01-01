@@ -360,6 +360,9 @@
 const apellido = document.getElementById('apellido');
 const email = document.getElementById('email');
 const tel = document.querySelector(".result");
+const edad = document.getElementById('result');
+const clasesparaadultos = document.getElementById('clasesparaadultos');
+const codigoseguridad = document.getElementById('box');
 const submit = document.getElementById('submit');
 
 submit.addEventListener('submit',(e)=>{
@@ -370,6 +373,9 @@ submit.addEventListener('submit',(e)=>{
     <h1>Last Name: </h1>${apellido.value}
     <h1>Last Name: </h1>${email.value}
     <h1>Last Name: </h1>${tel.innerHTML}
+    <h1>Last Name: </h1>${edad.innerHTML}
+    <h1>Last Name: </h1>${clasesparaadultos.value}
+    <h1>Last Name: </h1>${codigoseguridad.className}
     `;
 
     Email.send({
