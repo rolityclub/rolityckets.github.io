@@ -333,41 +333,71 @@
 
 </body>
 </html>
-<?php
-if(isset($_POST["SubmitBtn"])){
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <h1>Contact</h1>
+    
+    <form method="post" action="send-email.php">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+        
+        <label for="email">email</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" required>
+        
+        <label for="message">Message</label>
+        <textarea name="message" id="message" required></textarea>
+        
+        <br>
+        
+        <button>Send</button>
+    </form>
+    
+</body>
+</html>
+	<?php
 
-$to = "rolityclub@gmail.com";
-$subject = "Contact mail";
-$from=$_POST["email"];
-$msg=$_POST["msg"];
-$headers = "From: $from";
+$name = $_POST["name"];
+$email = $_POST["email"];
+$subject = $_POST["subject"];
+$message = $_POST["message"];
 
-mail($to,$subject,$msg,$headers);
-echo "Email successfully sent.";
-}
-?>
+require "vendor/autoload.php";
 
-<form id="emailForm" name="emailForm" method="post" action="" >
-<table width="100%" border="0" align="center" cellpadding="4" cellspacing="1">
-<tr>
-  <td colspan="2"><strong>Online Contact Form</strong></td>
-</tr>
-<tr>
-  <td>E-mail :</td>
-  <td><input name="email" type="text" id="email"></td>
-</tr>
-<tr>
-  <td>Message :</td>
-  <td>
-  <textarea name="msg" cols="45" rows="5" id="msg"></textarea>
-  </td>
-</tr>
-<tr>
-  <td>&nbsp;</td>
-  <td><input name="SubmitBtn" type="submit" id="SubmitBtn" value="Submit"></td>
-</tr>
-</table>
-</form>
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+
+$mail = new PHPMailer(true);
+
+// $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+
+$mail->isSMTP();
+$mail->SMTPAuth = true;
+
+$mail->Host = "smtp.example.com";
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mail->Port = 587;
+
+$mail->Username = "you@example.com";
+$mail->Password = "password";
+
+$mail->setFrom($email, $name);
+$mail->addAddress("dave@example.com", "Dave");
+
+$mail->Subject = $subject;
+$mail->Body = $message;
+
+$mail->send();
+
+header("Location: sent.html");
 <script>
   // International telephone format
 // $("#phone").intlTelInput();
