@@ -2,6 +2,160 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
+  <title>CodePen - GeoLocation to find nearest store</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+///// SCRIPT 1 //////<br><br>
+
+<button id = "find-me">Show my location</button><br/>
+<p id = "status"></p>
+<a id = "map-link" target="_blank"></a>
+<br>
+<br>
+///// SCRIPT 2 //////<br><br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<div id="nearestLocation"></div>
+
+<button id = "show-nearest-locations" >Show nearest location</button>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
+<script>
+  window.onload=geoFindMe;
+////// SCRIPT 1 /////////
+var lat = 0;
+var lng = 0;
+function geoFindMe() {
+
+  const status = document.querySelector('#status');
+  const mapLink = document.querySelector('#map-link');
+
+  mapLink.href = '';
+  mapLink.textContent = '';
+
+  function success(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    status.textContent = '';
+    mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+    mapLink.textContent = `${latitude} °,  ${longitude} °`;
+  lat = position.coords.latitude;
+    lng = position.coords.longitude;
+  }
+
+  function error() {
+    status.textContent = 'Unable to retrieve your location';
+  }
+
+  if (!navigator.geolocation) {
+    status.textContent = 'Geolocation is not supported by your browser';
+  } else {
+    status.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+
+}
+
+document.querySelector('#find-me').addEventListener('click', geoFindMe);
+
+//////////// SCRIPT 2 ////////////
+
+function distance(lat1, lon1, lat2, lon2, unit) {
+    	var radlat1 = Math.PI * lat1/180
+    	var radlat2 = Math.PI * lat2/180
+    	var theta = lon1-lon2
+    	var radtheta = Math.PI * theta/180
+    	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    	if (dist > 1) {
+    		dist = 1;
+    	}
+    	dist = Math.acos(dist)
+    	dist = dist * 180/Math.PI
+    	dist = dist * 60 * 1.1515
+    	if (unit=="K") { dist = dist * 1.609344 }
+    	if (unit=="N") { dist = dist * 0.8684 }
+    	return dist
+    }
+    //Tutorial by Eddie Kidiw
+//https://www.eddiekidiw.org
+
+function showNearestLocations() {
+  geoFindMe();
+    var data = [{
+        "lat": 43.34911,
+        "lng": -3.0009174,
+        "location": "https://www.openstreetmap.org/way/42086496#map=17/43.34979/-2.99831"
+    }, {
+        "lat": 43.26750,
+        "lng": -2.94817,
+        "location": "https://www.openstreetmap.org/way/115917130#map=18/43.26718/-2.94765"
+    }, {
+        "lat": 43.34745,
+        "lng": -2.99815,
+        "location": "https://www.openstreetmap.org/way/42086303#map=17/43.34745/-2.99815"
+    }, {
+        "lat": 43.28535,
+        "lng": -2.99277,
+        "location": "https://www.openstreetmap.org/way/630603632#map=19/43.28535/-2.99277"
+    }];
+
+    var html = "";
+    var poslat = lat;
+    var poslng = lng;
+    
+    var found = false;
+    for (var i = 0; i < data.length; i++) {
+        // if this location is within 0.1KM of the user, add it to the list
+        if (distance(poslat, poslng, data[i].lat, data[i].lng, "M") <= 2) {
+            html += '<a href="' + data[i].location + '" target="_blank"><i class="icon-location"></i>' + data[i].location + '</a> ';
+          found = true;
+        }
+    }
+    
+    $('#nearestLocation').html(html);
+    if (!found) {
+      $('#nearestLocation').html("no near location found");
+    }
+}
+document.querySelector('#show-nearest-locations').addEventListener('click', showNearestLocations);
+setTimeout(function() {
+  //Tutorial by Eddie Kidiw
+//https://www.eddiekidiw.org
+$(document).ready(function(){
+  $('#show-nearest-locations').click(function(){
+         alert('button clicked');
+     });
+   // set time out 5 sec
+      setTimeout(function(){
+         $('#show-nearest-locations').trigger('click');
+     }, 4000);
+ });
+}, 3000);
+
+window.onload = function() {
+$(document).ready(function(){
+  $('#find-me').click(function(){
+         alert('button clicked');
+     });
+   // set time out 5 sec
+      setTimeout(function(){
+         $('#find-me').trigger('click');
+     }, 0);
+ });
+};
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
 
   
 
