@@ -524,7 +524,6 @@ submit.addEventListener('submit',(e)=>{
     e.preventDefault();
     let ebody = `
     <h1>NOMBRE: </h1>${nombre.value}
-    <br>
     <h1>APELLIDO: </h1>${apellido.value}
     <h1>EMAIL: </h1>${email.value}
     <h1>TELEFONO: </h1>${tel.innerHTML}
@@ -539,7 +538,7 @@ submit.addEventListener('submit',(e)=>{
         SecureToken : "2cdc3ebd-d585-44f7-a0a4-7bdb08dfa06e", //add your token here
         To : 'rolityclub@gmail.com', 
         From : "rolityclub@gmail.com",
-        Subject : "This is the subject",
+        Subject : "CLASE PARA {nombre.value}",
         Body : ebody
     }).then(
       message => alert(message)
