@@ -801,10 +801,10 @@ $("#clasesenescuelas").on('change', function () {
 $("#clasesparticulares").on('change', function () {
 	if ($(this).is(':checked')) {
 		$(this).attr('value', 'CLASES PARTICULARES\n');
-		$('#precioparticulares').text('20€/pers\n');
+		$('#precioparticular').text('20€/pers\n');
 	} else {
 		$(this).attr('value', '');
-		$('#precioparticulares').text('');
+		$('#precioparticular').text('');
 	}
 
 	$('#particulares').text($('#clasesparticulares').val());
@@ -943,13 +943,13 @@ function genQrCode() {
 	var clasesparaninos = document.getElementById('clasesparaninos').value + document.getElementById('preciopeques').innerHTML;
 	var clasesdefreestylesalom = document.getElementById('clasesdefreestylesalom').value + document.getElementById('preciofreestyle').innerHTML;
 	var clasesenescuelas = document.getElementById('clasesenescuelas').value + document.getElementById('precioescuelas').innerHTML;
-	var clasesesparticulares = document.getElementById('clasesesparticulares').value + document.getElementById('precioparticulares').innerHTML;
+	var clasesparticulares = document.getElementById('clasesparticulares').value + document.getElementById('precioparticulares').innerHTML;
 
 
 
 	//TODO - Show Error on empty Box.
-	console.log( nombre, apellido, email, tel, edad, clasesparaadultos, clasesparaninos, clasesdefreestylesalom, clasesenescuelas, clasesesparticulares, codigoseguridad);
-	var str ="\nNOMBRE: " + nombre + "\nAPELLIDO: " + apellido + "\nEMAIL:" + email + "\nTELEFONO:" + tel + "\nEDAD: " + edad + "\n" + clasesparaadultos + "" + clasesparaninos + "" + clasesdefreestylesalom + "" + clasesenescuelas + clasesesparticulares + codigoseguridad;
+	console.log( nombre, apellido, email, tel, edad, clasesparaadultos, clasesparaninos, clasesdefreestylesalom, clasesenescuelas, clasesparticulares, codigoseguridad);
+	var str ="\nNOMBRE: " + nombre + "\nAPELLIDO: " + apellido + "\nEMAIL:" + email + "\nTELEFONO:" + tel + "\nEDAD: " + edad + "\n" + clasesparaadultos + "" + clasesparaninos + "" + clasesdefreestylesalom + "" + clasesenescuelas + clasesparticulares + codigoseguridad;
 	$("#reemplazarn").text(nombre);
 	$("#reemplazara").text(apellido);
 	$("#reemplazaremail").text(email);
