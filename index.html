@@ -138,16 +138,19 @@
          
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <input name="adultos" value="" title="CLASES PARA ADULTOS" id="clasesparaadultos" type="checkbox" onclick="addClassCheck(this)">
-<label for="clasesparaadultos" id="label_31_3_1">CLASES PARA ADULTOS</label><br>
+<label for="clasesparaadultos" id="label_31_3_1">UN ADULTOS</label><br>
 
 <input name="ninos" value="" title="CLASES PARA PEQUES" id="clasesparaninos" type="checkbox" onclick="addClassCheck(this)">
-<label for="clasesparaninos" id="label_31_3_1">CLASES PARA NIÑOS</label><br>
+<label for="clasesparaninos" id="label_31_3_1">UN NIÑOS</label><br>
 
 <input name="freestyle" value="" id="clasesdefreestylesalom" type="checkbox" onclick="addClassCheck(this)">
-<label for="clasesdefreestylesalom" id="label_31_3_1">CLASES DE FREESTYLE</label><br>
+<label for="clasesdefreestylesalom" id="label_31_3_1">DE FREESTYLE</label><br>
 
 <input name="escuelas" value="" id="clasesenescuelas" type="checkbox" onclick="addClassCheck(this)">
-<label for="clasesenescuelas" id="label_31_3_1">CLASES EN ESCUELAS</label>
+<label for="clasesenescuelas" id="label_31_3_1">UNA ESCUELAS</label>
+		  
+<input name="particulares" value="" id="clasesparticulares" type="checkbox" onclick="addClassCheck(this)">
+<label for="clasesparticulares" id="label_31_3_1">PARTICULARES</label>
 <div id="paragraph" class="alert alert-error">
   solo puedes seleccionar una casilla
   </div>
@@ -271,6 +274,9 @@
                 <div class="box" id="escuelas" style="font-size: 0.35cm;font: bold 20px monospace;font-weight: bold; display: none; color: #000000;border-top: 0px;  width: 100%; height: auto; white-space: nowrap;">
                   CLASES EN ESCUELAS:<span id="reemplazarcpa"></span>
                 </div>
+		<div class="box" id="particulares" style="font-size: 0.35cm;font: bold 20px monospace;font-weight: bold; display: none; color: #000000;border-top: 0px;  width: 100%; height: auto; white-space: nowrap;">
+                  CLASES PARTICULARES:<span id="reemplazarcpa"></span>
+                </div>
                 </div></center>
                 <center>
                     <div class="PRECIO" style="border-left: 0px; border-top: 0px; border-right: 0px;">PRECIO DE LA CLASE:
@@ -280,6 +286,7 @@
                         <div id="preciopeques" style="font: bold 20px monospace;"></div>
                         <div id="preciofreestyle" style="font: bold 20px monospace;"></div>
                         <div id="precioescuelas" style="font: bold 20px monospace;"></div>
+			<div id="precioparticular" style="font: bold 20px monospace;"></div>
                       </div>
                      </center>
                    </div>
@@ -770,8 +777,10 @@ $("#clasesparaninos").on('change', function () {
 $("#clasesdefreestylesalom").on('change', function () {
 	if ($(this).is(':checked')) {
 		$(this).attr('value', 'CLASES DE FREESTYLE\n');
+		$('#preciofreestyle').text('20€/pers\n');
 	} else {
 		$(this).attr('value', '');
+		$('#preciofreestyle').text('');
 	}
 
 	$('#freestyle').text($('#clasesdefreestylesalom').val());
@@ -780,11 +789,25 @@ $("#clasesdefreestylesalom").on('change', function () {
 $("#clasesenescuelas").on('change', function () {
 	if ($(this).is(':checked')) {
 		$(this).attr('value', 'CLASES EN ESCUELAS\n');
+		$('#precioescuelas').text('20€/pers\n');
 	} else {
 		$(this).attr('value', '');
+		$('#precioescuelas').text('');
 	}
 
 	$('#escuelas').text($('#clasesenescuelas').val());
+});
+
+$("#clasesparticulares").on('change', function () {
+	if ($(this).is(':checked')) {
+		$(this).attr('value', 'CLASES PARTICULARES\n');
+		$('#precioparticulares').text('20€/pers\n');
+	} else {
+		$(this).attr('value', '');
+		$('#precioparticulares').text('');
+	}
+
+	$('#particulares').text($('#clasesparticulares').val());
 });
 
 
@@ -796,6 +819,7 @@ $(function () {
 			$("#ninos").hide();
 			$("#freestyle").hide();
 			$("#escuelas").hide();
+			$("#particulares").hide();
 		} else {
 			$("#").hide();
 		}
@@ -808,6 +832,7 @@ $(function () {
 			$("#adultos").hide();
 			$("#freestyle").hide();
 			$("#escuelas").hide();
+			$("#particulares").hide();
 		} else {
 			$("#").hide();
 		}
@@ -820,6 +845,7 @@ $(function () {
 			$("#adultos").hide();
 			$("#ninos").hide();
 			$("#escuelas").hide();
+			$("#particulares").hide();
 		} else {
 			$("#").hide();
 		}
@@ -829,6 +855,20 @@ $(function () {
 	$("#clasesenescuelas").click(function () {
 		if ($(this).is(":checked")) {
 			$("#escuelas").show();
+			$("#adultos").hide();
+			$("#ninos").hide();
+			$("#freestyle").hide();
+			$("#particulares").hide();
+		} else {
+			$("#").hide();
+		}
+	});
+});
+$(function () {
+	$("#clasesparticulares").click(function () {
+		if ($(this).is(":checked")) {
+			$("#particulares").show();
+			$("#escuelas").hide();
 			$("#adultos").hide();
 			$("#ninos").hide();
 			$("#freestyle").hide();
@@ -901,14 +941,15 @@ function genQrCode() {
 	var clasesparaadultos = document.getElementById('clasesparaadultos').value + document.getElementById('precioadultos').innerHTML + document.getElementById('nearestLocation').innerText;
 	var codigoseguridad = document.getElementById('box').className + document.getElementById('box').innerHTML;
 	var clasesparaninos = document.getElementById('clasesparaninos').value + document.getElementById('preciopeques').innerHTML;
-	var clasesdefreestylesalom = document.getElementById('clasesdefreestylesalom').value;
-	var clasesenescuelas = document.getElementById('clasesenescuelas').value;
+	var clasesdefreestylesalom = document.getElementById('clasesdefreestylesalom').value + document.getElementById('preciofreestyle').innerHTML;
+	var clasesenescuelas = document.getElementById('clasesenescuelas').value + document.getElementById('precioescuelas').innerHTML;
+	var clasesesparticulares = document.getElementById('clasesesparticulares').value + document.getElementById('precioparticulares').innerHTML;
 
 
 
 	//TODO - Show Error on empty Box.
-	console.log( nombre, apellido, email, tel, edad, clasesparaadultos, clasesparaninos, clasesdefreestylesalom, clasesenescuelas, codigoseguridad);
-	var str ="\nNOMBRE: " + nombre + "\nAPELLIDO: " + apellido + "\nEMAIL:" + email + "\nTELEFONO:" + tel + "\nEDAD: " + edad + "\n" + clasesparaadultos + "" + clasesparaninos + "" + clasesdefreestylesalom + "" + clasesenescuelas + codigoseguridad;
+	console.log( nombre, apellido, email, tel, edad, clasesparaadultos, clasesparaninos, clasesdefreestylesalom, clasesenescuelas, clasesesparticulares, codigoseguridad);
+	var str ="\nNOMBRE: " + nombre + "\nAPELLIDO: " + apellido + "\nEMAIL:" + email + "\nTELEFONO:" + tel + "\nEDAD: " + edad + "\n" + clasesparaadultos + "" + clasesparaninos + "" + clasesdefreestylesalom + "" + clasesenescuelas + clasesesparticulares + codigoseguridad;
 	$("#reemplazarn").text(nombre);
 	$("#reemplazara").text(apellido);
 	$("#reemplazaremail").text(email);
