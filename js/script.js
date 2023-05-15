@@ -49,8 +49,8 @@ $d.addEventListener("click", e => {
                 quantity: 1
             }],
             mode: "subscription",
-            successUrl:"http://127.0.0.1:5500/assets/success.html",
-            cancelUrl:"http://127.0.0.1:5500/assets/cancel.html"
+            successUrl:"https://rolityclub.com/assets/success.html",
+            cancelUrl:"https://rolityclub.com/assets/cancel.html"
         })
         .then(res => {
             if (res.error){
