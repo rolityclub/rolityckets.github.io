@@ -1,4 +1,4 @@
-import KEYS from "../assets/Keys.js"
+import KEYS from "assets/Keys.js"
 
 const $d = document;
 const $arepas = $d.getElementById("arepas");
