@@ -1,0 +1,4 @@
+export default {
+  public: "pk_live_51N7icXC4BHtiueuVeQH5ZEwTCqJHc9ONbte8fKKsnI3cst6C6lvRJOVXZWB6RsIBe5zE80ydSvs0H3CgSyI1hGZp00sCuvJfHo",
+  secret: "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"
+}
